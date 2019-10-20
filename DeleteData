@@ -1,0 +1,15 @@
+function DeleteData() {
+  var sheet = SpreadsheetApp.openById('PUT YOUR GOOGLE SHEET HERE').getSheetByName('CpuUsage'); 
+  var range = sheet.getRange("A2:A").getValues();
+  
+  for (var i=range.length-1;i>=0;i--)
+  {
+    RowIndex=i;
+    
+    if(!range[i].every(function(c){return c =="";})){
+      break;
+    }
+  }
+  sheet.deleteRows(2, RowIndex);
+}
+
