@@ -1,0 +1,28 @@
+function UpdateDate() {
+  var sheet = SpreadsheetApp.openById('PUT YOUR GOOGLE SHEET ID HERE').getSheetByName('trend');  
+  var date = Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd");   
+  var range = sheet.getRange("A1:A").getValues();
+  
+  for (var i=range.length-1;i>=0;i--)
+  {
+    RowIndex=i;
+    
+    if(!range[i].every(function(c){return c =="";})){
+      break;
+    }
+  }
+  var row = RowIndex+2;
+  var  Trivial = '=COUNTIFS(usuario!$A:$A,A'+row+',usuario!$D:$D,$B$1)';
+  var  Low = '=COUNTIFS(usuario!$A:$A,A'+row+',usuario!$D:$D,$C$1)';
+  var  Medium = '=COUNTIFS(usuario!$A:$A,A'+row+',usuario!$D:$D,$D$1)';
+  var  High = '=COUNTIFS(usuario!$A:$A,A'+row+',usuario!$D:$D,$E$1)';
+  var sum = '=(B'+row+'*1) + (C'+row+'*2) + (D'+row+'*3) + (E'+row+'*5)';
+  
+  var day = new Date();
+  
+    if (day.getDay()<5) 
+    {
+      sheet.appendRow([date, Trivial, Low, Medium, High,sum]); 
+    }
+
+};
