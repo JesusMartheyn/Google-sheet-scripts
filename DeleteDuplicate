@@ -1,0 +1,19 @@
+function DeleteDuplicateInfo() {
+  var sheet = SpreadsheetApp.openById('1oa4P2FOGRFvw-UdDL9zNTrukfTPlg7xnnF53ngWffcc').getSheetByName('usuario'); 
+  var data = sheet.getRange("A:Z").getValues();
+  var newData = [];
+  for (i in data) {
+    var row = data[i];
+    var duplicate = false;
+    for (j in newData) {
+      if (row[1] == newData[j][1]) {
+        duplicate = true;
+      }
+    }
+    if (!duplicate) {
+      newData.push(row);
+    }
+  }
+  sheet.clearContents();
+  sheet.getRange(1, 1, newData.length, newData[0].length).setValues(newData);
+}
