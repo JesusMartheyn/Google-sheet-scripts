@@ -15,7 +15,7 @@ Esta linea nos permite dar formato a la variable date, esto luego servirá al mo
 <p><code>  var range = sheet.getRange("A1:A").getValues(); </code>
 Esta linea nos permite objener el rango del que vamos a obtener los valores, para de acuerdo a esto más adelante ver cual es la ultima linea ingresada y hacer el ingreso en la linea de abajo.</p>
 
-<p> El ciclo <h3>for</h3> nos permite identificar cual es la cantidad de Rows (filas) con datos, de este modo podremos saber la fila en la que debemos insertar nuestras ecuaciones.
+<p> El ciclo <b>for</b> nos permite identificar cual es la cantidad de Rows (filas) con datos, de este modo podremos saber la fila en la que debemos insertar nuestras ecuaciones.
 
 <p><code> var row = RowIndex+2; </code>
 Esta linea nos permite dar el valor de la linea donde debemos hacer la insercción de la fecha y las ecuaciones asociadas. El valor del contador es aumentado en 2 porque el conteo se hizo desde 0 y porque debemos colocarlo en la próxima fila. </p>
