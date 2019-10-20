@@ -1,0 +1,31 @@
+function UpdateTrendsSonar() {
+  var sheet = SpreadsheetApp.openById('PUT YOUR GOOGLE SHEET ID HERE').getSheetByName('SonarCloud KS');    
+  var range = sheet.getRange("A1:A").getValues();
+  
+  for (var i=range.length-1;i>=0;i--)
+  {
+    RowIndex=i;
+    
+    if(!range[i].every(function(c){return c =="";})){
+      break;
+    }
+  }
+  
+  var row = RowIndex+1;
+  
+  var COVERAGE = sheet.getRange("F2");
+  var DT = sheet.getRange("G2"); 
+  var ISSUES = sheet.getRange("H2"); 
+  var UT = sheet.getRange("I2"); 
+  
+  var  Trend_COVERAGE = '=TREND(B2:B'+row+', $A$2:$A$'+row+')';
+  var  Trend_DT = '=TREND(C2:C'+row+', $A$2:$A$'+row+')';
+  var  Trend_ISSUES = '=TREND(D2:D'+row+', $A$2:$A$'+row+')';
+  var  Trend_UT = '=TREND(E2:E'+row+', $A$2:$A$'+row+')';
+   
+  COVERAGE.setValue(Trend_COVERAGE);
+  DT.setValue(Trend_DT);
+  ISSUES.setValue(Trend_ISSUES);
+  UT.setValue(Trend_UT);
+
+};
