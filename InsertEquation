@@ -1,0 +1,22 @@
+function InsertEquation() {
+  
+  var sheet = SpreadsheetApp.openById('PUT YOUR GOOGLE SHEET ID HERE').getSheetByName('CpuUsage');    
+  var range = sheet.getRange("A2:A").getValues();
+  
+  for (var i=range.length-1;i>=0;i--)
+  {
+    RowIndex=i;
+    
+    if(!range[i].every(function(c){return c =="";})){
+      break;
+    }
+  
+  }
+  
+  var  row      = RowIndex+2;
+  var  VALUE    = sheet.getRange("C"+row);
+  var  EQ_VALUE = '=if(A'+row+',round(A'+row+',2),)';
+
+  VALUE.setValue(EQ_VALUE);
+
+};
