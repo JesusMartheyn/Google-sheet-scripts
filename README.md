@@ -20,5 +20,8 @@ Esta linea nos permite objener el rango del que vamos a obtener los valores, par
 <p><code> var row = RowIndex+2; </code>
 Esta linea nos permite dar el valor de la linea donde debemos hacer la insercción de la fecha y las ecuaciones asociadas. El valor del contador es aumentado en 2 porque el conteo se hizo desde 0 y porque debemos colocarlo en la próxima fila. </p>
 
+<p><code> var  Trivial = '=COUNTIFS(usuario!$A:$A,A'+row+',usuario!$D:$D,$B$1)'; </code>
+De las lineas 15 a la 19 se crean las variables con los valores de las ecuaciones que van a ser interdas de manera autonoma en cada ejecución del script. Note que se concatena el valor de la fila calculada en el paso anterior. </p>
+
 <h3> 3 - UpdateTrendSonar </h3>
 
