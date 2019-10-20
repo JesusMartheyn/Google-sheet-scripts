@@ -2,6 +2,17 @@
 This contains a set of useful scripts for automate tasks in google sheets.
 
 <h3> 1 - DeleteDuplicate </h3>
+
+<p><code> var sheet = SpreadsheetApp.openById('PUT YOUR GOOGLE SHEET ID HERE').getSheetByName('usuario');</code>
+Esta linea nos permite indicar la hoja y el google sheet donde se va a ejecutar el script. En este caso es en la hoja usuario del google sheet PUT YOUR GOOGLE SHEET ID HERE.</p>
+  
+<p><code> var data = sheet.getRange("A:Z").getValues();</code>
+En esta linea damos el rango donde pueden haber datos a comparar, en caso que se coloque un dato por fuera de este rango será eliminado sin importar si esté o no duplicada la información.</p>
+  
+<p><code> if (row[1] == newData[j][1])</code>
+Dentro de este <b>for</b> lo más importante es esta instrucción, donde podemos indicar cúal es el dato que vamos a comparar, en este caso la columna B. Para este script este es el dato a ser comparado para determinar si hay o no una entrada duplicada.</p>
+
+
 <h3> 2 - UpdateDate </h3>
 
 <p>Este script permite realizar una nueva entrada de fecha y ecuaciones para aquellos días inferiores a 5. A continuación explico un poco el código.</p>
