@@ -24,7 +24,7 @@ Esta linea nos permite dar el valor de la linea donde debemos hacer la insercci�
 De las lineas 15 a la 19 se crean las variables con los valores de las ecuaciones que van a ser interdas de manera autonoma en cada ejecuci처n del script. Note que se concatena el valor de la fila calculada en el paso anterior. </p>
 
 <p><code> sheet.appendRow([date, Trivial, Low, Medium, High,sum]);</code>
-En esta linea acomodamos la inserci처n de los datos de izquierda a derecha, desde la primera posici처n (A). </p>
+En esta linea acomodamos la inserci처n de los datos de izquierda a derecha, desde la primera posici처n (A). Esta parte del c처digo se encuentra en un condicional que es opcional, el cual solo permite que hayan inserciones de lunes a viernes. </p>
 
 <h3> 3 - UpdateTrendSonar </h3>
 
