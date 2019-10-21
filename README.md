@@ -39,3 +39,23 @@ En esta linea acomodamos la inserción de los datos de izquierda a derecha, desd
 
 <h3> 3 - UpdateTrendSonar </h3>
 
+<p><code> var sheet = SpreadsheetApp.openById('PUT YOUR GOOGLE SHEET ID HERE').getSheetByName('SonarCloud KS');</code>
+Esta linea del script nos permite indicar la hoja del google sheet donde vamos a hacer la inseción de información, en este caso es la hoja SonarCloud KS del sheet PUT YOUR GOOGLE SHEET ID HERE.</p>
+
+<p><code> var range = sheet.getRange("A1:A").getValues();</code>
+Esta linea nos permite indicar el rango que va a ser tenido en cuenta para nuestro propósito.</p>
+
+<p>Este ciclo <b>for</b> nos permite identificar el numero de la ultima Row(fila) con información en nuestro rango.</p>
+
+<p><code> var row = RowIndex+1;</code>
+Esta linea nos permite conocer el ultimo row con información en nuestro rango establecido. Se le suma 1 debido a que el contador inicia en la posición 0.</p>
+
+<p><code> var COVERAGE = sheet.getRange("F2");</code>
+Esta linea del script nos permite indicar la celda exacta donde se encuentra el valor del COVERAGE, en este caso en la cela F2.</p>
+
+<p><code> var  Trend_COVERAGE = '=TREND(B2:B'+row+', $A$2:$A$'+row+')';</code>
+En esta linea se crea la variable que contiene la ecuación a ser insertada en la celda del Coverage. Notese que se está concatenando el valor de row.</p>
+
+<p><code> COVERAGE.setValue(Trend_COVERAGE);</code>
+Esta linea finalmente hace la inserción del valor Trend_COVERAGE en la posición COVERAGE (F2).</p>
+
